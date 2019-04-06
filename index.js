@@ -9,11 +9,9 @@ const PromiseQueue = require('promise-queue');
 
 require('./tokens');
 const config = require('./config');
-const bumpAframeDist = require('./lib/bumpAframeDist').bumpAframeDist;
-const bumpAframeDocs = require('./lib/bumpAframeDocs').bumpAframeDocs;
-const bumpAframeRegistry = require('./lib/bumpAframeRegistry').bumpAframeRegistry;
+const bumpExokitDocs = require('./lib/bumpExokitDocs').bumpExokitDocs;
 const cherryPickDocCommit = require('./lib/cherryPickDocCommit').cherryPickDocCommit;
-const deployAframeSite = require('./lib/deployAframeSite').deployAframeSite;
+const deployExokitSite = require('./lib/deployExokitSite').deployExokitSite;
 
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
 const WEBHOOK_SECRET = process.env.SECRET_TOKEN;
@@ -80,13 +78,12 @@ function postHandler (data, githubSignature) {
 
     // Exokit repository.
     if (data.repository.full_name === config.repo) {
-      QUEUE.add(() => bumpAframeDist(data));
-      QUEUE.add(() => bumpAframeDocs(data));
+      QUEUE.add(() => bumpExokitDocs(data));
     }
 
     // Exokit Site repository.
     if (data.repository.full_name === config.repoSite) {
-      QUEUE.add(() => deployAframeSite(data));
+      QUEUE.add(() => deployExokitSite(data));
     }
   }
 
