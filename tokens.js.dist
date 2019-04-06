@@ -11,7 +11,7 @@ let config = {
 };
 
 // Set environment variables.
-config = config[process.env.AFROBOT_ENV] || config.staging;
+config = config[process.env.EXOBOT_ENV] || config.staging;
 Object.keys(config).forEach(function (key) {
   process.env[key] = process.env[key] || config[key];
 });

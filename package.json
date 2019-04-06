@@ -1,32 +1,32 @@
 {
-  "name": "a-frobot",
+  "name": "exo-bot",
   "version": "1.0.0",
-  "description": "A-Frame GitHub bot.",
+  "description": "Exokit GitHub bot.",
   "main": "index.js",
   "scripts": {
     "deploy": "git push origin master && git push staging master && git push heroku master",
-    "dev": "AFROBOT_ENV=test node index.js",
+    "dev": "EXOBOT_ENV=test node index.js",
     "lint": "semistandard -v | snazzy",
-    "start": "NODE_ENV=production AFROBOT_ENV=production forever -a -l log.log -e err.log start index.js",
-    "startstaging": "NODE_ENV=production AFROBOT_ENV=staging forever start index.js",
-    "test": "AFROBOT_ENV=test GITHUB_TOKEN=abc SECRET_TOKEN=def mocha --harmony --harmony-proxies tests",
+    "start": "NODE_ENV=production EXOBOT_ENV=production forever -a -l log.log -e err.log start index.js",
+    "startstaging": "NODE_ENV=production EXOBOT_ENV=staging forever start index.js",
+    "test": "EXOBOT_ENV=test GITHUB_TOKEN=abc SECRET_TOKEN=def mocha --harmony --harmony-proxies tests",
     "update": "git pull --rebase origin master && npm install && forever restart 0",
     "updatestaging": "git pull --rebase origin master && npm install && forever restart 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ngokevin/afro.git"
+    "url": "git+https://github.com/exo-bot/exo-bot.git"
   },
   "keywords": [
-    "aframevr",
-    "aframe"
+    "exokitxr",
+    "exokit"
   ],
-  "author": "Kevin Ngo <me@ngokevin.com>",
+  "author": "Exokit <hello@webmr.io>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ngokevin/afro/issues"
+    "url": "https://github.com/exo-bot/exo-bot/issues"
   },
-  "homepage": "https://github.com/ngokevin/afro#readme",
+  "homepage": "https://github.com/exo-bot/exo-bot#readme",
   "dependencies": {
     "async": "^2.1.4",
     "body-parser": "^1.15.2",

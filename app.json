@@ -1,8 +1,8 @@
 {
-  "name": "afro",
-  "description": "A-Frame GitHub bot.",
-  "repository": "https://github.com/ngokevin/afro",
-  "logo": "https://aframe.io/images/aframe-logo.png",
+  "name": "exo-bot",
+  "description": "Exokit GitHub bot.",
+  "repository": "https://github.com/exo-bot/exo-bot",
+  "logo": "https://exokit.org/images/exokit-logo.png",
   "keywords": ["node", "express"],
   "image": "heroku/nodejs"
 }

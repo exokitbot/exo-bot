@@ -78,18 +78,13 @@ function postHandler (data, githubSignature) {
       return 204;
     }
 
-    // A-Frame repository.
+    // Exokit repository.
     if (data.repository.full_name === config.repo) {
       QUEUE.add(() => bumpAframeDist(data));
       QUEUE.add(() => bumpAframeDocs(data));
     }
 
-    // A-Frame Registry repository.
-    if (data.repository.full_name === config.repoRegistry) {
-      QUEUE.add(() => bumpAframeRegistry(data));
-    }
-
-    // A-Frame Site repository.
+    // Exokit Site repository.
     if (data.repository.full_name === config.repoSite) {
       QUEUE.add(() => deployAframeSite(data));
     }
@@ -111,10 +106,9 @@ function cloneRepositories () {
   if (process.env.AFROBOT_ENV === 'test') { return; }
 
   async.series([
-    clone('aframe', config.repo),
-    clone('aframe-registry', config.repoRegistry),
-    clone('aframe-site', config.repoSite),
-    clone('aframevr.github.io', config.repoSitePages)
+    clone('exokit', config.repo),
+    clone('exokit-site', config.repoSite),
+    clone('exokitxr.github.io', config.repoSitePages)
   ], function () {
     console.log('All repositories cloned.');
   });
