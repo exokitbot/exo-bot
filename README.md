@@ -1,34 +1,33 @@
-# A-Frobot
+# exo-bot
 
-A-Frame GitHub bot.
+Exokit GitHub bot.
 
-![a-frobot](https://avatars0.githubusercontent.com/u/24716791?v=3&s=460)
+![exo-bot](https://avatars0.githubusercontent.com/u/49332553?s=460&v=4)
 
-[Latest A-Frame GitHub Pages](https://a-frobot.github.io/aframe/)
+[Latest Exokit GitHub Pages](https://exo-bot.github.io/exokit/)
 
 Deployed on AWS.
 
 ## Actions
 
-- When the A-Frame code or package.json is updated, bump the A-Frame master
-  builds and the bot's fork's GitHub Pages of A-Frame.
-- When the A-Frame master builds are bumped: update README, package.json, and bump again.
-- When the A-Frame documentation is updated, deploy the documentation on the A-Frame site.
-- When the A-Frame Registry is updated, bump the A-Frame Registry builds and site.
-- When a contributor comments `@a-frobot docs-v0.4.0` on a commit, cherry-pick
-  the commit to the documentation branch and deploy the A-Frame site.
-- When the A-Frame site is updated, deploy the A-Frame site to `aframevr/aframevr.github.io`.
+- When the Exokit code or package.json is updated, bump the Exokit master
+  builds and the bot's fork's GitHub Pages of Exokit.
+- When the Exokit master builds are bumped: update README, package.json, and bump again.
+- When the Exokit documentation is updated, deploy the documentation on the Exokit site.
+- When a contributor comments `@exo-bot docs-v0.4.0` on a commit, cherry-pick
+  the commit to the documentation branch and deploy the Exokit site.
+- When the Exokit site is updated, deploy the Exokit site to `exokitxr/exokitxr.github.io`.
 
 ## AWS Setup
 
-Open inbound ports in the AWS Security Group on the console. A-Frobot defaults
+Open inbound ports in the AWS Security Group on the console. exo-bot defaults
 to port 5000 for production and port 5001 for staging.
 
 ```sh
 sudo apt-get install git node npm
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
 bash && nvm install v6
-git clone git@github.com:ngokevin/a-frobot && cd a-frobot && npm install
+git clone git@github.com:exo-bot/exo-bot && cd exo-bot && npm install
 cp tokens.js.dist tokens.js
 ```
 
@@ -59,8 +58,7 @@ npm run startstaging
 
 ## Repository Setup
 
-- aframevr/aframe - Webhook + Write Access
-- aframevr/aframe-registry - Webhook + Write Access
-- aframevr/aframe-site - Webhook
-- aframevr/aframevr.github.io - Write Access
-- a-frobot/aframe - Fork
+- exokitxr/exokit - Webhook + Write Access
+- exokitxr/exokit-site - Webhook
+- exokitxr/exokitxr.github.io - Write Access
+- exo-bot/exokit - Fork
