@@ -21,7 +21,7 @@ const QUEUE = new PromiseQueue(1, Infinity);
 module.exports.QUEUE = QUEUE;
 
 // Git config.
-if (process.env.AFROBOT_ENV !== 'test') {
+if (process.env.EXOBOT_ENV !== 'test') {
   childProcess.execSync(`git config --global user.email ${config.userEmail}`);
   childProcess.execSync(`git config --global user.name ${config.userName}`);
 }
@@ -35,13 +35,13 @@ initExpressApp();
  * Express app.
  */
 function initExpressApp () {
-  console.log('A-frobot config:', JSON.stringify(config));
+  console.log('exo-bot config:', JSON.stringify(config));
 
   const app = express();
-  app.set('port', process.env.AFROBOT_ENV === 'staging' ? 5001 : 5000);
+  app.set('port', process.env.EXOBOT_ENV === 'staging' ? 5001 : 5000);
   app.use(bodyParser.json());
   app.get('/', function (req, res) {
-    res.send('AFRO');
+    res.send('EXO');
   });
 
   // Webhook handler.
@@ -72,7 +72,7 @@ function postHandler (data, githubSignature) {
     // Check that the commit is not from the bot.
     if (data.head_commit.committer.email === config.userEmail ||
         data.head_commit.committer.username === config.userName) {
-      console.log('Commit is from a-frobot, returning.');
+      console.log('Commit is from exo-bot, returning.');
       return 204;
     }
 
@@ -100,7 +100,7 @@ module.exports.postHandler = postHandler;
  * Clone repositories.
  */
 function cloneRepositories () {
-  if (process.env.AFROBOT_ENV === 'test') { return; }
+  if (process.env.EXOBOT_ENV === 'test') { return; }
 
   async.series([
     clone('exokit', config.repo),
